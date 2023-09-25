@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
  
 const productSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    unique: true,
-  },
+
+  
+
   title: {
     type: String,
     required: true,
+    unique: true,
+   
   },
   deleteStatus: {type: Boolean},
 
@@ -58,5 +59,6 @@ const productSchema = new mongoose.Schema({
 });
 
 const Product = mongoose.model('Product', productSchema);
+productSchema.index({ title: 2 }, { unique: true }); // Remove this line
 
 module.exports = Product;

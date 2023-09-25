@@ -49,9 +49,9 @@ const CartSchema = new mongoose.Schema({
     type: String, // Assuming userid is a numeric field
     required: true,
   },
-  id: {
+  ProductId: {
     type: Number, // Assuming id is a numeric field
-    required: true,
+    
   },
 });
 

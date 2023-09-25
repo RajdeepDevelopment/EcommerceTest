@@ -5,8 +5,6 @@
   try {
     let productQuery = Products.find({});
 
-    // Filter by category
-   // Filter by category
    if (req.query.category) {
     productQuery = productQuery.where('category').equals(req.query.category);
   }
@@ -100,10 +98,12 @@ const DeleteProduct = async (req, res) => {
 const fetchCreateProduct = async(req, res)=>{
 try{
  const newProduct =  new Products(req.body);
+   
  const saveProduct = await newProduct.save();
  res.json(saveProduct);
  console.log("Product SuccessFully Created")
 }
+
 catch(error){
   res.json("Create Product Failed"+ error)
   console.log("Product Createtion failed"+ error)
@@ -111,5 +111,5 @@ catch(error){
 }
 
 }
-module.exports = [fetchAllProducts, fetchProductsByid, DeleteProduct, updateQuantityProduct, fetchCreateProduct ];
+module.exports =  [fetchAllProducts, fetchProductsByid, DeleteProduct, updateQuantityProduct, fetchCreateProduct ];
 
